@@ -9,7 +9,7 @@ REGION="us-east-1"
 ECR_REGISTRY="${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com"
 
 # Services to build and push
-SERVICES=("cart" "catalogue" "payment" "shipping" "user" "frontend")
+SERVICES=("cart" "catalogue" "payment" "shipping" "user" "frontend" "mongodb")
 
 # ECR repository prefix
 ECR_REPOSITORY_PREFIX="roboshop-dev"
