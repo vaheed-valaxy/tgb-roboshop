@@ -10,6 +10,9 @@ services:
     build: ./catalogue
     image: joindevops/catalogue:4.0.0
     container_name: catalogue
+    environment:
+      MONGO: "true"
+      MONGO_URL: "mongodb://mongodb:27017/catalogue"
     depends_on:
     - mongodb
   frontend:
