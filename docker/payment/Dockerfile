@@ -9,12 +9,12 @@ RUN apk add --no-cache --virtual .build-deps gcc musl-dev linux-headers python3-
 
 FROM python:3.9.25-alpine3.22
 WORKDIR /app
-EXPOSE 8080
-RUN addgroup -S roboshop && adduser -S -G roboshop roboshop && \
-    chown -R roboshop:roboshop /app
 COPY  --from=builder /install /usr/local
 COPY --chown=roboshop:roboshop payment.ini *.py requirements.txt .
+RUN addgroup -S roboshop && adduser -S -G roboshop roboshop && \
+    chown -R roboshop:roboshop /app
 USER roboshop
+EXPOSE 8080
 CMD ["uwsgi", "--ini", "payment.ini"]
 
 # FROM python:3.9
